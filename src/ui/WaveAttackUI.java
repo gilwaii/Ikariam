@@ -75,26 +75,20 @@ public class WaveAttackUI extends JDialog {
             lblTitle[i].setBounds(30 + 110 * i, 20, 100, 50);
             pnMain.add(lblTitle[i]);
         }
-        if ((this.sentRealArmy).size() != 0) {
+        lblTitle[1].setBounds(110, 20, 100, 50);
+        lblTitle[2].setBounds(190, 20, 100, 50);
+        pnMain.add(lblTitle[1]);
+        pnMain.add(lblTitle[2]);
+        
         	lblTitle[0].setText("Mission");
-            lblTitle[1].setText("Attack time");
-            lblTitle[2].setText("Munition");
+            lblTitle[1].setText("Time");
+            lblTitle[2].setText("Status");
             lblTitle[3].setText("Unit");
             lblTitle[4].setText("Origin");
             lblTitle[5].setText("Target");
             lblTitle[6].setText("Action");
-        }
-        else {
-        	lblTitle[0].setText("Mission");
-            lblTitle[1].setText("Arrival time");
-            lblTitle[2].setText("Munition");
-            lblTitle[3].setText("Unit");
-            lblTitle[4].setText("Origin");
-            lblTitle[5].setText("Target");
-            lblTitle[6].setText("Action");
-        }
+        
         sentRealArmy.forEach((key, arrList) -> {
-        	
             for (int j = 0; j < arrList.size(); j++) {
                 int numberOfUnit = 0;
                 SentArmy sentArmy = arrList.get(arrList.size() - j - 1);
@@ -164,13 +158,14 @@ public class WaveAttackUI extends JDialog {
                     pnWave[count].getLblOrigin().setText(IsLandUI.myHouse.getName());
                     pnWave[count].getLblTarget().setText(IsLandUI.house[key].getName());
                     pnWave[count].getLblUnit().setText(numberOfUnit + "");
+                    pnWave[count].getLblMunition().setText("Attacking");
                     pnWave[count].getLblMission().setIcon(new ImageIcon(getClass().getResource("/Image/Pillage_Enabled.PNG")));
 
                     SimpleDateFormat ft = new SimpleDateFormat("mm:ss");
                     Timer dongho = new Timer(1000, new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(System.currentTimeMillis() - sentArmy.getArrivalTime())));
-                        	
+                        	if(IsLandUI.myHouse.getBattleFieldFighting().isWar() == false) pnWave[temp].getLblArrivalTime().setText("Done");
                         }
                     });
                     dongho.start();
@@ -201,20 +196,24 @@ public class WaveAttackUI extends JDialog {
                     pnWave[count] = new PnWaveAttack(sendingArmy, key, this.sendingArmy.get(key));
                     pnWave[count].getLblOrigin().setText(IsLandUI.myHouse.getName());
                     pnWave[count].getLblTarget().setText(IsLandUI.house[key].getName());
+                    if(sendingArmy.getBackHome() == false)
+                    	pnWave[count].getLblMunition().setText("Moving");
+                    else 
+                    	pnWave[count].getLblMunition().setText("Coming back home.");
                     pnWave[count].getLblUnit().setText(numberOfUnit + "");
                     pnWave[count].getLblMission().setIcon(new ImageIcon(getClass().getResource("/Image/Pillage_Enabled.PNG")));
                     SimpleDateFormat ft = new SimpleDateFormat("mm:ss");
                     Timer dongho = new Timer(1000, new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                            pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(sendingArmy.getStartTime() + sendingArmy.getArmy().getSpeedTimeForWholeRoute() - System.currentTimeMillis())));
-                        if((sendingArmy.getStartTime() + sendingArmy.getArmy().getSpeedTimeForWholeRoute() - System.currentTimeMillis()) < 1000)
-                        {
-                        	pnWave[temp].getLblArrivalTime().setText("arrived");
-                        }
+                            pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(sendingArmy.getFinishTime() - System.currentTimeMillis())));
+                            if((sendingArmy.getFinishTime() - System.currentTimeMillis()) < 1000)
+                            {
+                            	pnWave[temp].getLblArrivalTime().setText("arrived"); 
+                            }
                         }
                     });
                     dongho.start();
-
+                    
                     pnWave[count].setBounds(20, 60 * (count) + 75, 820, 50);
                     pnMain.add(pnWave[count]);
                     count++;

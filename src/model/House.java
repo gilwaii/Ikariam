@@ -21,6 +21,7 @@ public class House {
     private HashMap<Integer, ArrayList<SentArmy>> sentRealArmy;
     private ArrayList<RealArmy> waitingWaveAttack;
     private BattleFieldFighting battleFieldFighting;
+    private LogBattleFieldFighting logBattleFieldFighting;
     private String name;
 
     public House() {
@@ -28,6 +29,7 @@ public class House {
         wall = new Wall(0);
         sendingArmy = new HashMap<Integer, PriorityQueue<SendingArmy>>();
         battleFieldFighting = new BattleFieldFighting(id);
+        logBattleFieldFighting = new LogBattleFieldFighting(id);
         waitingWaveAttack = new ArrayList<RealArmy>();
         sentRealArmy = new HashMap<>();
     }
@@ -116,6 +118,14 @@ public class House {
     public void setBattleFieldFighting(BattleFieldFighting battleFieldFighting) {
         this.battleFieldFighting = battleFieldFighting;
     }
+    
+    public LogBattleFieldFighting getLogBattleFieldFighting() {
+        return logBattleFieldFighting;
+    }
+
+    public void setLogBattleFieldFighting(LogBattleFieldFighting logBattleFieldFighting) {
+        this.logBattleFieldFighting = logBattleFieldFighting;
+    }
 
     public ArrayList<RealArmy> getWaitingWaveAttack() {
         return waitingWaveAttack;
@@ -130,6 +140,7 @@ public class House {
         Army defenceArmy = this.army;
         int houseID = this.getId();
         sendingArmy.setTimer(timer);
+        
         timer.schedule(new TimerTask() {
             @Override
             public void run() {

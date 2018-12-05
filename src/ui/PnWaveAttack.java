@@ -93,8 +93,6 @@ public class PnWaveAttack extends JPanel {
         this.add(lblOrigin);
         this.add(lblTarget);
         this.add(btnAction);
-        
-        
     }
 
     private void addEvents() {
@@ -110,15 +108,21 @@ public class PnWaveAttack extends JPanel {
                     }
                     IsLandUI.house[id].getWaitingWaveAttack().add(sentArmy1.getRealArmy());
                     IsLandUI.myHouse.getSentRealArmy().get(id).remove(sentArmy1);
+                    sendingArmy.setBackHome(true);
                 }
                 else{
                     sendingArmy.getTimer().cancel();
-                    IsLandUI.myHouse.getSendingArmy().get(id).remove(sendingArmy);
                     Timer timer = new Timer();
+                    sendingArmy.setBackHome(true);
+                    lblMunition.setText("Coming back home.");
+                    btnAction.setBounds(0, 0, 0, 0);
+                    sendingArmy.setStartTime(System.currentTimeMillis());
+                    sendingArmy.setFinishTime(sendingArmy.getStartTime() + sendingArmy.getArmy().getSpeedTimeForWholeRoute() + 10 * 1000);
                     timer.schedule(new TimerTask() {
                         @Override
                         public void run() {
                             IsLandUI.myHouse.getArmy().addArmy(sendingArmy.getArmy());
+                            IsLandUI.myHouse.getSendingArmy().get(id).remove(sendingArmy);
                             JOptionPane.showMessageDialog(null, "Wave Success!");
                         }
                     }, IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getFinishTime() - IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getStartTime() + 10 * 1000);

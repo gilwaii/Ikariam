@@ -17,6 +17,7 @@ public class SendingArmy implements Comparable<SendingArmy>{
     private long startTime;
     private long finishTime;
     private Timer timer;
+    private boolean backHome;
     public SendingArmy() {
         army = new Army();
     }
@@ -41,6 +42,14 @@ public class SendingArmy implements Comparable<SendingArmy>{
 
     public void setArmy(Army army) {
         this.army = army;
+    }
+    
+    public void setBackHome(boolean backHome) {
+        this.backHome = backHome;
+    }
+    
+    public boolean getBackHome() {
+        return backHome;
     }
 
     public void setStartTime(long startTime) {

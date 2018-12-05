@@ -191,6 +191,7 @@ public class BattleFieldFighting {
                         }
                     }, 3000);
                     JOptionPane.showMessageDialog(null, "You won "+IsLandUI.house[houseID].getName());
+                    setWar(false);
                 } else {
                     boolean isAllWall = defenceBattleField.isAllWall();
                     attackBattleField.addToField(isAllWall);

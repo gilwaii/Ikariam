@@ -238,6 +238,7 @@ public class BattleFieldUI extends JDialog {
         }
         temp.setStartTime(System.currentTimeMillis());
         temp.setFinishTime(temp.getStartTime() + temp.getArmy().getSpeedTimeForWholeRoute());
+        temp.setBackHome(false);
         temp.getArmy().setArmourUpgrade(army.getArmourUpgrade());
         temp.getArmy().setDamageUpgrade(army.getDamageUpgrade());
       //  sendingArmy.add(temp);

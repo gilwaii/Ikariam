@@ -50,7 +50,7 @@ public class HouseInfoUI extends JDialog {
     JSlider sldLevelHouse, sldLevelWall;
     JTextField txtLevelHouse, txtLevelWall;
     JComboBox<String> cbo;
-    JButton btnDispose, btnPillage, btnBarrack, btnOK, btnBattleFighting, btnUpgradeUnit;
+    JButton btnDispose, btnPillage, btnBarrack, btnOK, btnBattleFighting, btnUpgradeUnit, btnLogBattleFighting;
 
     public HouseInfoUI() throws HeadlessException {
         addControls();
@@ -138,6 +138,11 @@ public class HouseInfoUI extends JDialog {
         btnBattleFighting.setBounds(50, 400, 110, 30);
         btnBattleFighting.setBackground(new Color(248, 222, 164));
         pnMain.add(btnBattleFighting);
+        
+        btnLogBattleFighting = new JButton("LogFighting");
+        btnLogBattleFighting.setBounds(50 + 120, 400, 110, 30);
+        btnLogBattleFighting.setBackground(new Color(248, 222, 164));
+        pnMain.add(btnLogBattleFighting);
 
         btnUpgradeUnit = new JButton("Upgrade Unit");
         btnUpgradeUnit.setBounds(50, 440, 110, 30);
@@ -335,6 +340,16 @@ public class HouseInfoUI extends JDialog {
                     IsLandUI.bffUI.showWindow();
 
                 }
+            }
+        });
+        
+        btnLogBattleFighting.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                    IsLandUI.bffUI = new BattleFieldFightingUI(IsLandUI.currentHouse.getBattleFieldFighting());
+                    System.out.println("" + IsLandUI.currentHouse.getBattleFieldFighting().getAttackBattleField().reserve.getArcher().size());
+                    IsLandUI.lbffUI = new LogBattleFieldFightingUI(IsLandUI.currentHouse.getLogBattleFieldFighting());
+                    IsLandUI.lbffUI.showWindow();
             }
         });
 
