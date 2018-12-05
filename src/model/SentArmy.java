@@ -12,6 +12,7 @@ package model;
 public class SentArmy {
     RealArmy realArmy;
     long arrivalTime;
+    long attackTime = 0;
 
     public RealArmy getRealArmy() {
         return realArmy;
@@ -27,6 +28,14 @@ public class SentArmy {
 
     public void setArrivalTime(long arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+    
+    public long getAttackTime() {
+        return attackTime;
+    }
+
+    public void setAttackTime(long attackTime) {
+        this.attackTime = attackTime;
     }
 
     public SentArmy(RealArmy realArmy, long arrivalTime) {

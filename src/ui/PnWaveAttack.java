@@ -74,9 +74,9 @@ public class PnWaveAttack extends JPanel {
         this.setBackground(new Color(251,232,193));
         lblMission.setBounds(10, 10, 100, 50);
         lblMission.setIcon(new ImageIcon(getClass().getResource("/Image/Pillage_Enabled.PNG")));
-        lblArrivalTime.setBounds(120, 10, 150, 50);
+        lblArrivalTime.setBounds(110, 10, 150, 50);
         lblArrivalTime.setText("");
-        lblMunition.setBounds(230, 10, 100, 50);
+        lblMunition.setBounds(210, 10, 100, 50);
         lblMunition.setText("");
         lblUnit.setBounds(340, 10, 100, 50);
         lblUnit.setText("Test3");

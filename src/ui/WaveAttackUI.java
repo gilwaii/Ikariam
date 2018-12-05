@@ -32,7 +32,8 @@ import model.SentArmy;
  * @author Dat Ngo
  */
 public class WaveAttackUI extends JDialog {
-	
+	boolean[] check = new boolean[64];
+	long[] check2 = new long[64];
     int size = 0;
     int wei = 0;
     JLabel[] lblTitle;
@@ -164,8 +165,15 @@ public class WaveAttackUI extends JDialog {
                     SimpleDateFormat ft = new SimpleDateFormat("mm:ss");
                     Timer dongho = new Timer(1000, new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
+                        	if (IsLandUI.house[key].getBattleFieldFighting().isWar() == true) {
                             pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(System.currentTimeMillis() - sentArmy.getArrivalTime())));
-                        	if(IsLandUI.myHouse.getBattleFieldFighting().isWar() == false) pnWave[temp].getLblArrivalTime().setText("Done");
+                            sentArmy.setAttackTime(System.currentTimeMillis() - sentArmy.getArrivalTime());
+                        	}
+                        	if(IsLandUI.house[key].getBattleFieldFighting().isWar() == false)
+                        		{
+                        		pnWave[temp].getLblMunition().setText("Done");
+                        		pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(sentArmy.getAttackTime())));
+                        		}
                         }
                     });
                     dongho.start();
