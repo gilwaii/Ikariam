@@ -55,14 +55,14 @@ public class PnSetUnit extends JPanel{
         lblName.setBounds(70, 15, 100, 20);
         this.add(lblName);
         sld = new JSlider(0, 2000);
-        sld.setBounds(200, 15, 300, 20);
+        sld.setBounds(160, 15, 300, 20);
         sld.setBackground(new Color(251,232,193));
         this.add(sld);
         txt = new JTextField(3);
-        txt.setBounds(520, 15, 30, 20);
+        txt.setBounds(480, 15, 30, 20);
         this.add(txt);
         btnSetMax = new JButton("Max");
-        btnSetMax.setBounds(555, 15, 60, 20);
+        btnSetMax.setBounds(520, 15, 60, 20);
         this.add(btnSetMax);
     }
     public void addEvents() {        

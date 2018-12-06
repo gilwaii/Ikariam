@@ -377,19 +377,19 @@ public class Army {
     
     public int getSpeedTimeForWholeRoute() {
         if (getNumberOfBB() > 0)
-            return 30*1000; //Balloon-Bombardier mất 30 phút - > 30s để di chuyển
+            return 30*1000*2; //Balloon-Bombardier mất 30 phút - > 30s để di chuyển
         else if (getNumberOfSteam() > 0 
                 || getNumberOfMotar() > 0 
                 || getNumberOfCatapult() > 0 
                 || getNumberOfRam() > 0)
-            return 15*1000;	//Catapult,Cook,Mortar,Ram,Steam Giant mất 15 phút - > 15s để di chuyển
+            return 15*1000*2;	//Catapult,Cook,Mortar,Ram,Steam Giant mất 15 phút - > 15s để di chuyển
         else if (getNumberOfArcher() > 0 
                 || getNumberOfSC() > 0 
                 || getNumberOfSlinger() > 0
                 || getNumberOfHop() > 0 
                 || getNumberOfSpear() > 0)
-            return 20*1000; //Doctor,Archer,Hoplite,Slinger,Spearman,Sulphur Carabineer,Swordsman mất 10 phút - > 10s để di chuyển
+            return 20*1000*2; //Doctor,Archer,Hoplite,Slinger,Spearman,Sulphur Carabineer,Swordsman mất 10 phút - > 10s để di chuyển
         
-        return (int)(7.5 * 1000); // Gyrocopter mất 7.5 phút - > 7.5s để di chuyển
+        return (int)(7.5 * 1000*2); // Gyrocopter mất 7.5 phút - > 7.5s để di chuyển
     }
 }

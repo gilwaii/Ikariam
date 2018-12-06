@@ -15,7 +15,9 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.Timer;
 import javax.swing.BorderFactory;
@@ -65,6 +67,7 @@ public class BattleFieldUI extends JDialog {
     public static JTabbedPane pnTab;
     
     JPanel pnMain, pnTitle, pnButton, pnContent;
+	JLabel lblTime;
     JLabel lblImg, lblTitle, lblImgTitle;
     JButton btnDispose;
     
@@ -128,6 +131,14 @@ public class BattleFieldUI extends JDialog {
         
         Border border = BorderFactory.createLineBorder(Color.blue);
         
+        lblTime = new JLabel("Preview of Battlefield");
+        Font fontPreview2 = new Font("arial", Font.BOLD, 15);
+        lblTime.setFont(fontPreview2);
+        lblTime.setForeground(Color.DARK_GRAY);
+        lblTime.setPreferredSize(new Dimension(240, 50));
+        lblTime.setBounds(100, 5, 200, 50);
+        pnMain2.add(lblTime);
+        
         JPanel pn1 = new JPanel();
         pn1.setBorder(border);
         pn1.setPreferredSize(new Dimension(750, 60));
@@ -181,6 +192,7 @@ public class BattleFieldUI extends JDialog {
                     pnSetUnitBattle[unit.ordinal()].getSld().setMaximum(army.getNumberOf(unit));
                     pnSetUnitBattle[unit.ordinal()].getJTextFieldMax().setText(String.valueOf(army.getNumberOf(unit)));
                     pnSetUnitBattle[unit.ordinal()].getSld().setValue(0);
+                    
                 }
             }
         });

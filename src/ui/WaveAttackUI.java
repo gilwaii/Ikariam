@@ -213,8 +213,8 @@ public class WaveAttackUI extends JDialog {
                     SimpleDateFormat ft = new SimpleDateFormat("mm:ss");
                     Timer dongho = new Timer(1000, new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                            pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(sendingArmy.getFinishTime() - System.currentTimeMillis())));
-                            if((sendingArmy.getFinishTime() - System.currentTimeMillis()) < 1000)
+                            pnWave[temp].getLblArrivalTime().setText(ft.format(new Date(sendingArmy.getStartTime() + (sendingArmy.getFinishTime() - sendingArmy.getStartTime())/IsLandUI.speech - System.currentTimeMillis())));
+                            if((sendingArmy.getStartTime() + (sendingArmy.getFinishTime() - sendingArmy.getStartTime())/IsLandUI.speech - System.currentTimeMillis()) < 1000)
                             {
                             	pnWave[temp].getLblArrivalTime().setText("arrived"); 
                             }

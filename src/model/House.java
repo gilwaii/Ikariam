@@ -162,7 +162,7 @@ public class House {
                 IsLandUI.myHouse.getSendingArmy().get(id).poll();
                 JOptionPane.showMessageDialog(null, "Success");
             }
-        }, IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getFinishTime() - IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getStartTime());
+        }, (IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getFinishTime() - IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getStartTime())/IsLandUI.speech);
     }
 
 }

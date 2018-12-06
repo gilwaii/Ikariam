@@ -202,7 +202,7 @@ public class BattleFieldFighting {
 
             }
             }
-        }, 12*1000);
+        }, IsLandUI.speechWar * 1000);
         
         
     }

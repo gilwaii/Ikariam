@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/maidoanh/Documents/NetBeansProjects/IkariamFinal2/src/model/BattleFieldFighting.java</file>
-            <file>file:/C:/Users/maidoanh/Documents/NetBeansProjects/IkariamFinal2/src/model/House.java</file>
-            <file>file:/C:/Users/maidoanh/Documents/NetBeansProjects/IkariamFinal2/src/ui/BattleFieldUI.java</file>
-            <file>file:/C:/Users/maidoanh/Documents/NetBeansProjects/IkariamFinal2/src/ui/PnWaveAttack.java</file>
+            <file>file:/E:/20181/Ikariam/src/ui/HouseInfoUI.java</file>
+            <file>file:/E:/20181/Ikariam/src/ui/IsLandUI.java</file>
+            <file>file:/E:/20181/Ikariam/src/ui/SetUnitJDialog.java</file>
+            <file>file:/E:/20181/Ikariam/src/model/House.java</file>
+            <file>file:/E:/20181/Ikariam/src/ui/SpeechGame.java</file>
+            <file>file:/E:/20181/Ikariam/src/ui/MyJButtonWaveAttack.java</file>
+            <file>file:/E:/20181/Ikariam/src/ui/PnSetUnit.java</file>
         </group>
     </open-files>
 </project-private>

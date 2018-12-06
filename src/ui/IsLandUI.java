@@ -24,7 +24,8 @@ import model.House;
  * @author Dat Ngo
  */
 public class IsLandUI extends JFrame{
-    JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17;
+    public static int speech,speechWar;
+    JButton btnGuide,btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17,btnspeech,btnspeechWar;
     JTextField txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11, txt12, txt13, txt14, txt15, txt16, txt17;
     JLabel lblIsLand;
     public static WaveAttackUI waveattack;
@@ -120,6 +121,12 @@ public class IsLandUI extends JFrame{
         txt6.setVisible(false);
         pnMain.add(txt6);
         pnMain.add(btn6);
+        
+        btnGuide = new JButton();
+        btnGuide.setBounds(930, 100, 60, 60);
+        pnMain.add(btnGuide);
+
+
         
         btn7 = new MyJButtonFlag();
         btn7.setBounds(190, 510, 60,60);
@@ -238,6 +245,19 @@ public class IsLandUI extends JFrame{
         btnWaveAttack.setBorder(null);
         pnMain.add(btnWaveAttack);
         
+        
+        btnspeech = new JButton();
+        btnspeech.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/gametime.png")));
+//        btnspeech.setContentAreaFilled(false);
+//        btnspeech.setBorder(null);
+        btnspeech.setBounds(10, 10, 90,108);
+        pnMain.add(btnspeech);
+        
+        btnspeechWar = new JButton();
+        btnspeechWar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/gametime.png")));
+        btnspeechWar.setBounds(95, 10, 90,108);
+        pnMain.add(btnspeechWar);
+        
         lblIsLand = new JLabel();
         lblIsLand.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Island_4-0.5.0.jpg")));
         pnMain.add(lblIsLand);
@@ -268,6 +288,14 @@ public class IsLandUI extends JFrame{
             }
         });
         
+        btnGuide.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HuongDan btn = new HuongDan();
+                btn.show();
+            }
+        });
+
         
         btn2.addActionListener(new ActionListener() {
             @Override
@@ -411,6 +439,22 @@ public class IsLandUI extends JFrame{
                 currentButton = btn17;
                 currentTextField = txt17;
                 houseInfoUI.showWindow();
+            }
+        });
+        
+        btnspeech.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SpeechGame sp=new SpeechGame();
+                sp.showWindow();
+            }
+        });
+        
+        btnspeechWar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SpeechWar sp=new SpeechWar();
+                sp.showWindow();
             }
         });
         

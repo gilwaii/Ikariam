@@ -125,7 +125,7 @@ public class PnWaveAttack extends JPanel {
                             IsLandUI.myHouse.getSendingArmy().get(id).remove(sendingArmy);
                             JOptionPane.showMessageDialog(null, "Wave Success!");
                         }
-                    }, IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getFinishTime() - IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getStartTime() + 10 * 1000);
+                    }, (IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getFinishTime() - IsLandUI.myHouse.getSendingArmy().get(IsLandUI.currentHouse.getId()).element().getStartTime() + 10 * 1000)/IsLandUI.speech);
                 }
             }
         });
